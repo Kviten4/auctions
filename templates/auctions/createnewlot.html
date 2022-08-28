@@ -1,0 +1,56 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    New lot
+{% endblock %}
+
+{% block body %}
+    <h3 class="d-flex justify-content-center mb-3"> Create your listing </h3>
+    <form class="mainformNewLot" action="{% url 'newlot' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="formNewLot">
+            {% for fielda in form %}
+                {% if fielda.name == 'urlimage' %}
+                    <div class="rowForms">
+                            <label class="lotLabel" for="{{ field.name}}">{{ fielda.label }}:</label>
+                            <div class="doublefield">
+                                {{ fielda }} {{ form.uploadimage }}
+                            </div>
+                    </div>
+                {% elif fielda.name == 'uploadimage' %}
+                {% elif fielda.name == 'category' %}
+                    <div class="rowForms">
+                        <label class="lotLabel" for="{{ fielda.name}}">{{ fielda.label }}:</label>
+                        {{ fielda }}
+                        <!-- {{ fielda.category.all|dictsort:"name" }} -->
+                        <!-- {% for item in fielda|dictsort:"name" %}
+                            {{ item }}
+                        {% endfor %} -->
+                    </div>
+                {% else %}    
+                    <div class="rowForms">
+                        <label class="lotLabel" for="{{ fielda.name}}">{{ fielda.label }}:</label>
+                        {{ fielda }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <div class="rowForms">
+                <div class="lotLabel"></div>
+                <input type="submit" name="submit" class="btn btn-primary">
+            </div>           
+        </div>        
+    </form>
+<script type="text/javascript">
+$(function(){
+    var requiredCheckboxes = $('.lotCateg :checkbox[required]');
+    requiredCheckboxes.change(function(){
+        if(requiredCheckboxes.is(':checked')) {
+            requiredCheckboxes.removeAttr('required');
+        } else {
+            requiredCheckboxes.attr('required', 'true');
+        }
+    });
+});
+
+</script>
+{% endblock %}

@@ -1,0 +1,467 @@
+body {
+    padding-top: 10px;
+    background-color: #ebfffc;
+    background-image: url(http://www.transparenttextures.com/patterns/brick-wall-dark.png);
+}
+
+textarea {
+    resize: none;
+}
+
+input, textarea, select {
+    border: 1px solid #000;
+    border-radius: 3px;
+}
+
+hr {
+    margin-top: 0;
+}
+
+p {
+    margin: 0;
+}
+
+label {
+    margin-bottom: 0;
+}
+
+.registerForm {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.registerForm > form {
+    width: 20%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.registerForm > p > a {
+    color: #4f4f4f;
+    font-weight: bold;
+}
+
+.userName, .userAuthor {
+    display: inline-block;
+    font-style: italic;
+}
+
+.userName:hover {
+    text-decoration: none !important;
+    color: #4f4f4f !important;
+}
+
+.navpad {
+    padding-left: 30px;
+    padding-right: 30px;    
+}
+
+.nav-link {
+    color: #4f4f4f;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.col-4 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.allListings{
+    display: block;
+}
+
+.imageUnit {
+    height: 62%;
+    text-align: center;
+}
+
+.imageUnit > img {
+    object-fit: cover;
+    height: 100%;
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.nameText {    
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    margin-bottom: 2px;
+    margin-top: 4px;
+}
+
+.descrText {
+    overflow: hidden;
+    height: 17%;
+    width: 100%;
+    background: -webkit-linear-gradient(white, white, white, white, transparent);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent; 
+    font-weight: 550;   
+}
+
+.itemLotOuter {
+    display: block;
+    width: 372px;
+    min-width: 350px;
+    height: 440px;
+    padding-left: 0.75vw;
+    padding-right: 0.75vw;
+    margin-bottom: 3vh;    
+}
+
+.itemLot {
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    border-radius: 16px;
+    background-color: #294bb0;
+    background-image: url(http://www.transparenttextures.com/patterns/grunge-wall.png);
+}
+
+.itemLotInactive {
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    border-radius: 16px;
+    background-image: url(http://www.transparenttextures.com/patterns/grunge-wall.png);
+}
+
+.itemLotInactive, .itemLotPageInactive {
+    background-color: #d63333;
+}
+
+.itemLotInner {    
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    color: ghostwhite;
+    position: relative;      
+}
+
+.lotfooter {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: fit-content;
+}
+
+.mainformNewLot {
+    display: block;
+}
+
+.formNewLot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    row-gap: 10px;
+    color: #343a40;
+}
+
+.lotTitle {
+    display: block;
+}
+
+.row {
+    padding-left: 7vw;
+    padding-right: 7vw;
+    margin: 0;
+}
+
+.rowForms {
+    display: flex;
+    height: fit-content;
+    width: 90%;
+    justify-content: flex-start;
+}
+
+.lotLabel {
+    display: block;
+    margin: 0;
+    min-width: 120px;
+    width: 120px;
+    font-size: 18px;
+}
+
+.lotDescription {
+    display: block;
+    height: 25vh;
+}
+
+.formElemWidth {
+    width: 100%;
+}
+
+.formElemInlineHeight {
+    height: 30px;
+}
+
+.lotBid {
+    width: 7vw;
+    min-width: 60px;
+}
+
+.lotURL {
+    display: inline-block;
+    width: 70%;
+}
+
+.lotUp  {
+    display: block;
+    width: 30%;
+    border: none;
+    height: 30px;
+}
+
+::-webkit-file-upload-button{
+    height: 30px;
+}
+
+.doublefield {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.lotCateg {   
+    display: flex; 
+    flex-wrap: wrap;
+    column-gap: 8px;
+    padding:0;
+    width: fit-content;
+    flex-direction: row;
+}
+
+.lotCateg > div {
+    display: inline-flex;
+    align-items: center; 
+}
+
+.lotCateg > div > label {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    column-gap: 2px;
+    height: 30px;
+}
+
+#btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+}
+
+.myarrow {
+    width: 60px;
+    height: 60px;
+}
+
+.listofCat {
+    display: block;
+    margin-top: 5px;
+}
+
+.ullistcat {
+    list-style-type: none;
+    margin-bottom: 0px;
+}
+
+.linkForCat {
+    color: #4f4f4f;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.linkForCat:hover {
+    color: #0e52c1;
+    text-decoration: underline;
+}
+
+.lotpagelink {
+    width: 100%;
+    height: 88%;
+    position: absolute;    
+}
+
+.itemLotOuterPage /*row*/ {
+    padding-left: 12vw;
+    padding-right: 12vw;
+    margin: 0;
+    height: 100%;
+}
+
+.imageAndPanel {
+    display: flex;
+    column-gap: 10px;
+    width: 100%;
+}
+
+.Panel {
+    width: 25%;
+}
+
+.imageUnitPage {
+    width: 75%;
+    text-align: left;
+}
+
+.imageUnitPage > img {
+    border-radius: 12px;
+    object-fit: scale-down;
+    max-width: 100%;
+    max-height: 450px
+}
+
+.itemLotPage {
+    width: 100%;
+    height: 100%;
+    padding: 2vw;
+    border-radius: 30px;
+    background-color: #294bb0;
+    background-image: url(http://www.transparenttextures.com/patterns/grunge-wall.png);
+}
+
+.itemLotPageInactive {
+    width: 100%;
+    height: 100%;
+    padding: 2vw;
+    border-radius: 30px;
+    background-image: url(http://www.transparenttextures.com/patterns/grunge-wall.png);
+}
+
+.nameTextPage {
+    text-align: center;
+    margin-bottom: 3px;
+    margin-top: 5px;
+}
+
+.descrTextPage {
+    width: 100%;
+}
+
+.catAndSeller {
+    display: flex;
+    justify-content: space-between;
+    height: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.catItems {
+    display: block;
+    height: 25px;
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.catItem {
+    display: inline-block;
+    background-color: orange;
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 25px;
+    color: #4f4f4f;
+}
+
+.linkForCatPage {
+    color: #4f4f4f;
+}
+
+.linkForCatPage:hover {
+    color: #0e52c1;
+    text-decoration: none;
+}
+
+.BidsForm {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.commentdiv {
+    padding-left: 12vw;
+    padding-right: 12vw;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.commentdiv > form {
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.comment {
+    width: 100%;
+    color: ghostwhite;
+    height: 100%;
+    margin-bottom: 10px;
+    padding: 0.4vw 2vw;
+    border-radius: 8px;
+    background-color: #118000;
+    background-image: url("https://www.transparenttextures.com/patterns/fabric-of-squares.png")
+}
+
+.commentUser {
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.lotAddComment {
+    height: 60px;
+    border-radius: 8px;
+    padding: 0.4vw 2vw;
+}
+
+.bidItemPage {
+    width: fit-content;
+    background-color: transparent;
+    border-radius: 5px;
+    padding-left: 4px;
+    padding-right: 4px;
+    box-shadow: 0px 0px 5px 1px #343a40;
+    font-size: 18px;
+}
+
+.congrat {
+    word-break: break-all;
+}
+
+.bidItem {
+    width: fit-content;
+    background-color: transparent;
+    border-radius: 5px;
+    padding-left: 4px;
+    padding-right: 4px;
+    box-shadow: 0px 0px 5px 1px #343a40;
+}
+
+.mark {
+    position: absolute;
+    width: 250px;
+    background-color: transparent;
+    border-radius: 5px;
+    padding-left: 4px;
+    padding-right: 4px;
+    box-shadow: 0px 0px 15px 15px #343a40;
+    top: 30%;
+    left: 12%;
+    font-size: 75px;
+    transform: rotate(-45deg);
+    color:rgb(224, 34, 34);
+    text-align: center;
+    background-color:rgba(27, 27, 27, 0.45);
+}

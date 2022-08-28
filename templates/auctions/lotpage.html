@@ -1,0 +1,127 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+
+        {{ lot.name }}
+    
+{% endblock %}
+
+{% block body %}
+    <div class="itemLotOuterPage">
+        {% if messageGood %}
+            <div class="alert alert-success text-center" role="alert">
+                {{ messageGood }}
+            </div>
+        {% elif messageBad %}
+            <div class="alert alert-danger text-center" role="alert">
+                {{ messageBad }}
+            </div>
+        {% endif %}
+        {% if lot.statusActive %}
+        <div class="itemLotPage">
+        {% else %}
+        <div class="itemLotPageInactive">
+        {% endif %}
+            <div class="itemLotInner">
+                <div class="imageAndPanel">
+                    <div class="imageUnitPage">
+                        {% if lot.urlimage %}
+                            <img src="{{ lot.urlimage }}">
+                        {% else %}
+                            <img src="/media/{{ lot.uploadimage }}">
+                        {% endif %}
+                    </div>
+                    <div class="Panel">
+                        <div class="BidsForm">
+                            <p class="bidItemPage">
+                                Starting bid: ${{ lot.bid }}
+                            </p>
+                            {% if lot.statusActive %}
+                                {% if UserBid %}
+                                    {% if UserMaxBid %}
+                                        <p class="bidItemPage">
+                                            Your last bid: ${{ UserMaxBid.userBid }}
+                                        </p>
+                                    {% endif %}
+                                    <p class="bidItemPage">
+                                        Current bid: ${{ UserBid.userBid }}
+                                    </p>
+                                {% endif %}
+                                <form action="{% url 'lotpage' lot.id %}" method="post">
+                                    {% csrf_token %} 
+                                    {{ bidform }}
+                                    <input type="submit" class="btn btn-info btn-sm" name="Make bid" value="Make bid">
+                                </form>
+                                <form action="{% url 'lotpage' lot.id %}" method="post">
+                                    {% csrf_token %} 
+                                    {% if statusWatch == False %}
+                                        <input type="submit" class="btn btn-success btn-sm" name="watchlistSwitch" value="Add to watchlist">
+                                    {% elif statusWatch == True %}
+                                        <input type="submit" class="btn btn-success btn-sm" name="watchlistSwitch" value="Delete from watchlist">
+                                    {% endif %}
+                                </form>
+                                {% if statusOwner %}
+                                    <form action="{% url 'lotpage' lot.id %}" method="post">
+                                        {% csrf_token %} 
+                                        <input type="submit" class="btn btn-success btn-sm" name="closelot" value="Close the lot">
+                                     </form>    
+                                {% endif %}
+                            {% else %}
+                                {% if UserBid %}
+                                    <p class="bidItemPage">
+                                        Sold for ${{ UserBid.userBid }} <br> to <span class="userAuthor">{{ UserBid.author }}</span> 
+                                    </p>
+                                    {% if user == UserBid.author %}
+                                        <p class = "bidItemPage congrat">
+                                            Congratulations! You won!
+                                        </p>
+                                    {% endif %}
+                                {% else %}
+                                    <p class="bidItemPage">
+                                        Lot closed, but unsold 
+                                    </p>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>        
+                </div>
+                <h4 class="nameTextPage">
+                    {{ lot.name }}  
+                </h4>
+                <p class="descrTextPage text-justify">
+                    {{ lot.description }}
+                </p>
+                
+                <div class="catAndSeller">
+                    <div class="catItems">
+                        {% for item in lot.category.all|dictsort:"name" %} 
+                            <div class="catItem">
+                                <a class="linkForCatPage" href="{% url 'catview' item.name %}"> {{item.name}} </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <span class="bidItem">
+                        created by <div class="userAuthor">{{ lot.author.username }}</div>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="commentdiv">
+        {% for item in Comments %}
+            <div class="comment">
+                <p class="commentUser bidItem">
+                    {{ item.author }}
+                </p> 
+                <p>
+                    {{ item.comment }}
+                </p>
+            </div>
+        {% endfor %}
+        <form action="{% url 'lotpage' lot.id %}" method="post">
+            {% csrf_token %} 
+            {{ commentform }}
+            <input type="submit" name= "Make comment" class="btn btn-success btn-sm" value="Add comment">
+        </form>
+    </div>
+{% endblock %}

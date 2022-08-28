@@ -1,0 +1,21 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    Categories
+{% endblock %}
+
+
+{% block body %}
+    <h2 class="d-flex justify-content-center"> Choice category</h2>
+    <div class="d-flex justify-content-center">
+        <div class="listofCat">
+            {% for item in categories %} 
+                <ul class="ullistcat">
+                    <li class="">
+                        <a class="linkForCat" href="{% url 'catview' item.name %}"> {{item.name}} </a>
+                    </li>        
+                </ul>
+            {% endfor %} 
+        </div>
+    </div>
+{% endblock %}
